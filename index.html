@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>lectione-11</title>
+</head>
+<body>
+	<h1>Задание:</h1> <br>
+	Вам нужно сделать конструктор сущности Студент.
+
+
+
+У Студента есть имя, фамилия, год рождения — это свойства.
+Есть массив с оценками, это тоже свойство.
+И есть возможность получить возраст студента и его средний бал — это методы.
+Еще у всех Студентов есть по массиву одинаковой длины, в нем 30 элементов, изначально он не заполнен, но на 30 элементов. Это массив в котором отмечается посещаемость, каждый раз когда мы вызываем метод .present() на очередное пустое место в массив записывается true, когда вызываем .absent() — записывается false.
+Есть массив с оценками и метод mark(), мы можем передать оценку от 0 до 10. Длина тоже фиксированная
+
+
+Предусмотрите какую нибудь защиту от того чтоб в массивах не могло быть более 30 записей. Массив это свойство, present и absent, mark — методы.
+
+
+
+Ну и последний метод: .summary(), он проверяет среднюю оценку, и среднее посещение, и если средняя оценка больше 9 а среднее посещение больше 0.9, то метод summary, возвращает строку "Ути какой молодчинка!", если одно из этих значений меньше, то — "Норм, но можно лучше", если оба ниже — "Редиска!". Ну и не забудьте после того как напишите замечательный конструктор, создать пару экземпляров(конкретных студентов) и подергать методы.
+
+
+
+
+<script>
+	function user (Name,lastName,bday,assessments,attendance) {
+		this.Name = Name;
+		this.lastName = lastName;
+		this.bday = bday
+		this.assessments = assessments;
+		this.attendance = attendance;
+		
+
+
+	function present () {
+		attendance.push( 'true' );
+	}
+
+	function absent() {
+		attendance.push( 'false' ); 
+	}
+	function  mark() {
+		var result = prompt('Оценка от 0 до 10');
+		assessments.push(result);
+
+	}
+
+	function summary() {
+		 var length = assessments.length;
+		 var sum = 0;
+		
+		for(var i = 0; i < length ; i++) {
+			var elem = +assessments[i];
+			//var b = +assessments[i+1];
+			sum += elem;
+		 }
+
+		console.log( 'Сумма чиссел = ' + sum );
+		//console.log(result);
+
+
+		var length2 = attendance.length;
+		var res = 1;
+		for ( var i = 0; i <= length2 -1; i++) {
+			var z = attendance[i];
+			
+			//console.log(z)
+			if ( z === 'true' ) {
+				res++;
+			}
+			else {
+				//console.log('false');
+				
+			}
+		}
+		var result2 = (res - 1) / length2;
+		console.log( 'Количество true элементов = ' + res );
+		console.log( res-1 +' / ' + length2 + ' = ' + result2 );
+		var result =  sum / length;
+		console.log( sum + ' / ' + length + ' = ' + result );
+
+		if (result2 >= 0.9 && result >= 9 ) {
+			alert("Ути какой молодчинка!")
+		} else if (result2 < 0.9 && result >= 9  || result2 >= 0.9 && result < 9 ) {
+			alert("Норм, но можно лучше");
+		} else {
+			alert("Редиска!");
+		}
+
+		
+
+	}
+	
+	mark();
+	mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	//mark();
+	//mark();
+	//mark();
+	//mark();
+	// console.log(mark());
+	// console.log(mark());
+	// console.log(mark());
+
+
+
+	
+	present()
+	present();
+	present();
+	present();
+	absent();
+	present();
+	absent();
+	absent();
+	absent();
+	absent();
+	present()
+	present();
+	present();
+	present();
+	absent();
+	present();
+	absent();
+	absent();
+	absent();
+	absent();
+	present()
+	present();
+	present();
+	present();
+	absent();
+	present();
+	absent();
+	absent();
+	absent();
+	absent();
+	present()
+	present();
+	present();
+	present();
+	absent();
+	present();
+	absent();
+	absent();
+	absent();
+	absent();
+	present()
+	present();
+	present();
+	present();
+	absent();
+	present();
+	absent();
+	absent();
+	absent();
+	absent();
+	present()
+	present();
+	present();
+	present();
+	absent();
+	present();
+	absent();
+	absent();
+	absent();
+	absent();
+
+
+
+			if (attendance.length > 30  )	{
+				attendance.splice(30, 100);
+				//console.log(attendance)
+
+			} else if( assessments.length > 30 ){
+				assessments.splice(30, 100);
+				//console.log(assessments)
+			} else {
+				console.log('длина массивов < 30');
+			}
+		
+summary();
+}
+console.log(new user('Kirill','lokash','27/08/2001',[],[]));
+console.log(new user('Kirill2','lokash2','27/08/2001',[],[]));
+
+</script>
+
+
+
+</body>
+</html>
