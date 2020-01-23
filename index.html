@@ -37,26 +37,40 @@
 
 
 	function present () {
-		attendance.push( 'true' );
+		attendance.unshift( 'true' );
 	}
 
 	function absent() {
-		attendance.push( 'false' ); 
+		attendance.unshift( 'false' ); 
 	}
 	function  mark() {
-		var result = prompt('Оценка от 0 до 10');
-		assessments.push(result);
+		var result = prompt('Введите число');
+		assessments.unshift(result);
 
+			if (attendance.length > 30  )	{
+				attendance.splice(30, 100);
+				//console.log(attendance)
+
+			} else if( assessments.length > 30 ){
+				assessments.splice(30, 100);
+				//console.log(assessments)
+			} else {
+				console.log('длина массивов < 30');
+			}
 	}
+	present();
+	present();
+	present();
 
 	function summary() {
 		 var length = assessments.length;
 		 var sum = 0;
-		
+		console.log(sum)
 		for(var i = 0; i < length ; i++) {
 			var elem = +assessments[i];
 			//var b = +assessments[i+1];
 			sum += elem;
+			console.log(assessments[i])
 		 }
 
 		console.log( 'Сумма чиссел = ' + sum );
@@ -95,16 +109,37 @@
 
 	}
 	
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
+	// mark();
 	mark();
-	mark();
-	// mark();
-	// mark();
-	// mark();
-	// mark();
-	//mark();
-	//mark();
-	//mark();
-	//mark();
+
 	// console.log(mark());
 	// console.log(mark());
 	// console.log(mark());
@@ -174,7 +209,6 @@
 	absent();
 
 
-
 			if (attendance.length > 30  )	{
 				attendance.splice(30, 100);
 				//console.log(attendance)
@@ -185,11 +219,12 @@
 			} else {
 				console.log('длина массивов < 30');
 			}
+
 		
 summary();
 }
-console.log(new user('Kirill','lokash','27/08/2001',[],[]));
-console.log(new user('Kirill2','lokash2','27/08/2001',[],[]));
+console.log(new user('Kirill','lokash','27/08/2001', [1,2,3,10,10,10,10,5,4,3,10,10,10,4,7,6,9,0,1,3,6,4,7,8,4,3,2,9,10,10], new Array(30)));
+console.log(new user('Kirill2','lokash2','27/08/2001', [4,3,2,9,10,10,0,4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10], new Array(30)));
 
 </script>
 
